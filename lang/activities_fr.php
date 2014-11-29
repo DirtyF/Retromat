@@ -681,7 +681,7 @@ all_activities[42] = {
 phase:     0,
 name:      "Prise de position - Ouverture",
 summary:   "Les participants se positionnent, pour indiquer leur niveau de satisfaction par rapport à l'itération",
-desc:      "Créer une grande échelle (par exemple une longue ligne) sur le sol avec du rouleau adhésif. Définissez une extrémité \
+desc:      "Créez une grande échelle (par exemple une longue ligne) sur le sol avec du rouleau adhésif. Définissez une extrémité \
 comme 'Génial' et l'autre comme 'Nul'. Invitez les participants à se positionner sur l'échelle \
 en fonction de leur satisfaction à propos de la dernière itération. Psychologiquement, \
 prendre position physiquement est différent de juste dire quelque chose. C'est plus 'réel'.<br> \
@@ -694,7 +694,7 @@ all_activities[43] = {
 phase:     4,
 name:      "Prise de position - Conclusion",
 summary:   "Les participants se positionnent, pour indiquer leur niveau de satisfaction par rapport à la rétrospective",
-desc:      "Créer une grande échelle (par exemple une longue ligne) sur le sol avec du rouleau adhésif. Définissez une extrémité \
+desc:      "Créez une grande échelle (par exemple une longue ligne) sur le sol avec du rouleau adhésif. Définissez une extrémité \
 comme 'Génial' et l'autre comme 'Nul'. Invitez les participants à se positionner sur l'échelle \
 en fonction de leur satisfaction à propos de la rétrospective. Psychologiquement, \
 prendre position physiquement est différent de juste dire quelque chose. C'est plus 'réel'.<br> \
@@ -737,4 +737,17 @@ source:    source_skycoach,
 more:      "<a href='http://skycoach.be/2010/06/17/12-retrospective-exercises/'>Article original</a>",
 duration:  "15",
 suitable: "release, project"
+};
+all_activities[47] = {
+	phase:     3,
+	name:      "Prise de position - Danse en ligne",
+	summary:   "Recueillir le sentiment de chacun et parvenir à un consensus",
+	desc:      "Quand l'équipe n'arrive à pas choisir entre deux options, créez une grande échelle (par exemple une longue ligne) \
+	au sol avec de l'adhésif. Marquez une extrémité comme l' option A) et l'autre comme option B). \
+	Les membres de l'équipe se positionnenent sur l'échelle en fonction de leur préférence pour chacune des options. \
+	Maintenant modifiez les options jusqu'à ce qu'une des deux emporte la majorité.",
+	source:    source_skycoach,
+	more:      "<a href='http://skycoach.be/2010/06/17/12-retrospective-exercises/'>Article original</a>",
+	duration:  "5-10 per decision",
+	suitable: "iteration, release, project"
 };
