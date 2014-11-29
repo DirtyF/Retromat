@@ -29,25 +29,24 @@ $_lang['INDEX_TEAM_TRANSLATOR_TEXT'][0] = <<<EOT
 	<br><br><br>
 EOT;
 
+$_lang['INDEX_TEAM_TRANSLATOR_NAME'][1] = 'Julien Dubois';
+$_lang['INDEX_TEAM_TRANSLATOR_LINK'][1] = 'http://juliendubois.fr/';
+$_lang['INDEX_TEAM_TRANSLATOR_IMAGE'][1] = 'static/images/team/julien_dubois.jpg';
+$_lang['INDEX_TEAM_TRANSLATOR_TEXT'][1] = <<<EOT
+	Co-fondateur d'<a href="http://happyculture.coop/">Happyculture</a>, Julien est un lead développeur agile passionné par les gens.Curieux? Direction twitter: <a href="https://twitter.com/Artusamak">@Artusamak</a>.
+	<br><br><br>
+EOT;
+
 $_lang['INDEX_TEAM_TRANSLATOR_NAME'][2] = 'Frank Taillandier';
 $_lang['INDEX_TEAM_TRANSLATOR_LINK'][2] = 'https://twitter.com/DirtyF';
 $_lang['INDEX_TEAM_TRANSLATOR_IMAGE'][2] = 'static/images/team/frank_taillandier.jpg';
 $_lang['INDEX_TEAM_TRANSLATOR_TEXT'][2] = <<<EOT
 	Facilitateur chez <a href="http://www.occitech.fr/">Occitech</a>.<br>
-    Organisateur de <a href="http://sudweb.fr">Sud Web</a> une conférence pour s'inspirer et progresser. 
+  Organisateur de <a href="http://sudweb.fr">Sud Web</a> une conférence pour s'inspirer et progresser.
 	<br><br><br>
 EOT;
 
-$_lang['INDEX_TEAM_TRANSLATOR_NAME'][1] = 'Julien Dubois';
-$_lang['INDEX_TEAM_TRANSLATOR_LINK'][1] = 'http://juliendubois.fr/';
-$_lang['INDEX_TEAM_TRANSLATOR_IMAGE'][1] = 'static/images/team/julien_dubois.jpg';
-$_lang['INDEX_TEAM_TRANSLATOR_TEXT'][1] = <<<EOT
-	Co-fondateur d'<a href="http://happyculture.coop/">Happyculture</a>, Julien est un lead développeur agile passionné par les gens.
-	Curieux? Direction twitter: <a href="https://twitter.com/Artusamak">@Artusamak</a>.
-	<br><br><br>
-EOT;
-
-$_lang['INDEX_TEAM_CORINNA_TITLE'] = 'Version originale: ';
+$_lang['INDEX_TEAM_CORINNA_TITLE'] = 'Version originale : ';
 $_lang['INDEX_TEAM_CORINNA_TEXT'] = $_lang['INDEX_MINI_TEAM'] = <<<EOT
     Corinna souhaitait quelque chose comme Retr-O-Mat pendant ses années de Scrummaster.
     Finalement elle le construit elle même dans l'espoir que cela serait utile à d'autres également.
