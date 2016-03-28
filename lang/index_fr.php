@@ -12,11 +12,11 @@ $_lang['INDEX_ALL_ACTIVITIES'] = 'Toutes les activités pour';
 $_lang['INDEX_LOADING'] = '...Chargement des activités...';
 
 $_lang['INDEX_NAVI_WHAT_IS_RETRO'] = '<a href="http://finding-marbles.com/retr-o-mat/what-is-a-retrospective/">What\'s a retrospective?</a>';
-$_lang['INDEX_NAVI_ABOUT'] = '<a href="http://finding-marbles.com/retr-o-mat/about-retr-o-mat/">About Retr-O-Mat</a>';
+$_lang['INDEX_NAVI_ABOUT'] = '<a href="http://finding-marbles.com/retr-o-mat/about-retr-o-mat/">About Retromat</a>';
 $_lang['INDEX_NAVI_PRINT'] = '<a href="/print/index.html">Print Edition</a>';
 $_lang['INDEX_NAVI_ADD_ACTIVITY'] = '<a href="https://docs.google.com/a/finding-marbles.com/spreadsheet/viewform?formkey=dEZZV1hPYWVZUDc2MFNsUEVRdXpMNWc6MQ">Add activity</a>';
 
-$_lang['INDEX_ABOUT'] = 'Retr-O-Mat contient <span class="js_footer_no_of_activities"></span> activités, permettant <span class="js_footer_no_of_combinations"></span> combinaisons (<span class="js_footer_no_of_combinations_formula"></span>) et nous en ajoutons sans cesse plus. Vous connaissez une activité géniale?';
+$_lang['INDEX_ABOUT'] = 'Retromat contient <span class="js_footer_no_of_activities"></span> activités, permettant <span class="js_footer_no_of_combinations"></span> combinaisons (<span class="js_footer_no_of_combinations_formula"></span>) et nous en ajoutons sans cesse plus.'; // Vous connaissez une activité géniale?
 $_lang['INDEX_ABOUT_SUGGEST'] = 'Suggérez la ';
 
 $_lang['INDEX_TEAM_TRANSLATOR_TITLE'] = 'Traduction : ';
@@ -48,7 +48,7 @@ EOT;
 
 $_lang['INDEX_TEAM_CORINNA_TITLE'] = 'Version originale : ';
 $_lang['INDEX_TEAM_CORINNA_TEXT'] = $_lang['INDEX_MINI_TEAM'] = <<<EOT
-    Corinna souhaitait quelque chose comme Retr-O-Mat pendant ses années de Scrummaster.
+    Corinna souhaitait quelque chose comme Retromat pendant ses années de Scrummaster.
     Finalement elle le construit elle même dans l'espoir que cela serait utile à d'autres également.
     Des questions, suggestions ou encouragements ?
     Vous pouvez lui écrire à <a href="mailto:corinna@finding-marbles.com">un e-mail</a> ou
@@ -61,11 +61,13 @@ $_lang['ACTIVITY_SOURCE'] = 'Source :';
 $_lang['ACTIVITY_PREV'] = 'Afficher une autre activité pour cette phase';
 $_lang['ACTIVITY_NEXT'] = 'Afficher une autre activité pour cette phase';
 $_lang['ACTIVITY_PHOTO_ADD'] = 'Ajouter une Photo';
-
 $_lang['ACTIVITY_PHOTO_MAIL_SUBJECT'] = 'Photos%20for%20Activity%3A%20ID';
 $_lang['ACTIVITY_PHOTO_MAIL_BODY'] = 'Hi%20Corinna%21%0D%0A%0D%0A[%20]%20Photo%20is%20attached%0D%0A[%20]%20Photo%20is%20online%20at%3A%20%0D%0A%0D%0ABest%2C%0D%0AYour%20Name';
+$_lang['ACTIVITY_PHOTO_VIEW_PHOTO'] = 'Voir la photo';
+$_lang['ACTIVITY_PHOTO_VIEW_PHOTOS'] = 'Voir les photos';
+$_lang['ACTIVITY_PHOTO_BY'] = 'Photo par ';
 
-$_lang['ERROR_NO_SCRIPT'] = 'Retr-O-Mat est principalement basé sur JavaScript et ne fonctionne pas sans. Veuillez donc activer JavaScript dans votre navigateur. Merci !';
+$_lang['ERROR_NO_SCRIPT'] = 'Retromat est principalement basé sur JavaScript et ne fonctionne pas sans. Veuillez donc activer JavaScript dans votre navigateur. Merci !';
 $_lang['ERROR_MISSING_ACTIVITY'] = 'Désolé, impossible de trouver une activité avec l\'ID';
 
 $_lang['POPUP_CLOSE'] = 'Fermer';

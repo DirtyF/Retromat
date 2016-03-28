@@ -16,6 +16,7 @@ if ($lang == 'en') {
 require(get_language_file_path($lang));
 
 $activities_file = 'lang/activities_' . $lang . '.php';
+$activities_photos_file = 'lang/photos.php';
 
 // PHP FUNCTIONS
 
@@ -47,7 +48,7 @@ function get_url_to_index() {
 <!DOCTYPE html>
 <html>
 <head>
-<title>Retr-O-Mat - <?php echo($_lang['HTML_TITLE']); ?></title>
+<title>Retromat - <?php echo($_lang['HTML_TITLE']); ?></title>
 
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
@@ -86,7 +87,7 @@ var INVERTED_CHANCE_OF_SOMETHING_DIFFERENT = 25; // Probability to show "differe
 var source_agileRetrospectives = '<a href="http://www.amazon.com/Agile-Retrospectives-Making-Teams-Great/dp/0977616649/">Agile Retrospectives<\/a>';
 var source_findingMarbles = '<a href="http://www.finding-marbles.com/">Corinna Baldauf<\/a>';
 var source_kalnin = '<a href="http://vinylbaustein.net/tag/retrospective/">Thorsten Kalnin<\/a>';
-var source_innovationGames = '<a href="http://www.amazon.com/Innovation-Games-Creating-Breakthrough-Collaborative/dp/0321437292/">Innovation Games<\/a>';
+var source_innovationGames = '<a href="http://www.amazon.com/Innovation-Games-Creating-Breakthrough-Collaborative/dp/0321437292/">Luke Hohmann<\/a>';
 var source_facilitatorsGuide = '<a href="http://www.amazon.de/Facilitators-Participatory-Decision-Making-Jossey-Bass-Management/dp/0787982660/">Facilitator\'s Guide to Participatory Decision-Making<\/a>';
 var source_skycoach = '<a href="http://skycoach.be/ss/">Nick Oostvogels</a>';
 var source_judith = '<a href="https://leanpub.com/ErfolgreicheRetrospektiven">Judith Andresen</a>';
@@ -97,6 +98,7 @@ var PHASE_ID_TAG = 'phase';
 <?php
 
     require($activities_file);
+    require($activities_photos_file);
 
 ?>
 
@@ -218,7 +220,7 @@ function populate_activity_block(activity_index, activity_block) {
     $(activity_block).find('.js_fill_summary').html(activity.summary);
     $(activity_block).find('.js_fill_source').html(activity.source);
     $(activity_block).find('.js_fill_description').html(activity.desc);
-    $(activity_block).find('.js_fill_photo-link').html(get_photo_string(activity.photo));
+    $(activity_block).find('.js_fill_photo-link').html(get_photo_string(activity_index));
 
 }
 
@@ -234,13 +236,29 @@ function convert_index_to_id(index) {
     return parseInt(index) + 1;
 }
 
-/* Param: activity.photo
- * Returns: String (empty or link to photo)
+/* Param: activity index
+ * Returns: String (empty or link to photo(s))
  */
-function get_photo_string(photo) {
+function get_photo_string(index) {
     res = "";
-    if (photo != null) {
-        res = photo + " | ";
+    if (all_photos[index] != null) {
+        for (var i=0; i<all_photos[index].length; i++) {
+            res += "<a href='";
+            res += all_photos[index][i]['filename'];
+            res += "' rel='lightbox[activity" + index + "]' ";
+            res += "title='<?php echo($_lang['ACTIVITY_PHOTO_BY']); ?>";
+            res += all_photos[index][i]['contributor'];
+            res += "'>";
+            if (i == 0) {
+                if (all_photos[index].length < 2) {
+                    res += "<?php echo($_lang['ACTIVITY_PHOTO_VIEW_PHOTO']); ?>";
+                } else {
+                    res += "<?php echo($_lang['ACTIVITY_PHOTO_VIEW_PHOTOS']); ?>";
+                }
+            }
+            res += "</a>";
+        }
+//        res += " | "; PAUSED Until I've got more time
     }
     return res;
 }
@@ -475,6 +493,14 @@ function generate_random_regular_plan_id() {
 
 /************ BEGIN Footer Functions ************/
 
+function create_link_to_all_activities(number_of_activities) {
+	var link_string = "<a href='/index<?php if(!$isEnglish) echo("_" . $lang); ?>.html?id=1";
+	for (i=2; i<=number_of_activities; i++) {
+		link_string += "-" + i;
+	}
+	return link_string + "&all=yes'>" + number_of_activities + "</a>";
+}
+
 function get_number_of_activities_in_phase(phase_index) {
     var activities = get_indexes_of_activities_in_phase(phase_index);
     return activities.length;
@@ -502,7 +528,7 @@ function get_combinations_string() {
 }
 
 function publish_footer_stats() {
-    $(".js_footer_no_of_activities").html(all_activities.length);
+    $(".js_footer_no_of_activities").html(create_link_to_all_activities(all_activities.length));
     $(".js_footer_no_of_combinations").html(get_number_of_combinations());
     $(".js_footer_no_of_combinations_formula").html(get_combinations_string());
 }
@@ -634,25 +660,36 @@ function switchLanguage(new_lang) {
 //]]>
 </script>
 
+<link rel="alternate" hreflang="en" href="index.html" />
+<link rel="alternate" hreflang="es" href="index_es.html" />
+<link rel="alternate" hreflang="fr" href="index_fr.html" />
+<link rel="alternate" hreflang="de" href="index_de.html" />
+<link rel="alternate" hreflang="nl" href="index_nl.html" />
+
 </head>
 
 <body onload="JavaScript:init()">
 
 <div class="header">
     <a href="<?php echo(get_url_to_index()) ?>" class="header__logo">
-        <img class="header__logo" src="static/images/logo_white.png" alt="Retr-O-Mat" title="Retr-O-Mat"></a>
+        <img class="header__logo" src="static/images/logo_white.png" alt="Retromat" title="Retromat"></a>
 
     <select class="languageswitcher" onChange="switchLanguage(this.value)">
-        <option value="en" <?php echo(print_if_selected("en", $lang)); ?> >English (95 activities)</option>
-        <option value="es" <?php echo(print_if_selected("es", $lang)); ?> >Espa&ntilde;ol (93 actividades)</option>
+        <option value="de" <?php echo(print_if_selected("de", $lang)); ?> >Deutsch (39 Aktivit&auml;ten)</option>
+        <option value="en" <?php echo(print_if_selected("en", $lang)); ?> >English (118 activities)</option>
+        <option value="es" <?php echo(print_if_selected("es", $lang)); ?> >Espa&ntilde;ol (95 actividades)</option>
         <option value="fr" <?php echo(print_if_selected("fr", $lang)); ?> >Fran&ccedil;ais (47 activit&eacute;s)</option>
+        <option value="nl" <?php echo(print_if_selected("nl", $lang)); ?> >Nederlands (96 activiteiten)</option>
     </select>
 
       <span class="navi">
         <?php echo($_lang['INDEX_NAVI_WHAT_IS_RETRO']); ?> |
         <?php echo($_lang['INDEX_NAVI_ABOUT']); ?> |
-        <?php echo($_lang['INDEX_NAVI_PRINT']); ?>  |
+        <?php echo($_lang['INDEX_NAVI_PRINT']); ?>
+		  <!-- PAUSED Until I've got more time
+		  |
         <?php echo($_lang['INDEX_NAVI_ADD_ACTIVITY']); ?>
+        -->
       </span>
 </div>
 
@@ -665,8 +702,8 @@ function switchLanguage(new_lang) {
 <?php if ($isEnglish) { ?>
     <div class="book">
         <div class="content">
-                Did you know there's a
-                <a href="/print/index.html">Print Editon of the Retr-O-Mat</a>?
+                For an interesting new perspective on retrospectives why not try a
+                <a href="http://frontrowagile.com/themed">themed retrospective</a>?
         </div>
     </div>
 <?php } ?>
@@ -674,7 +711,7 @@ function switchLanguage(new_lang) {
 <div class="plan-header">
     <div class="content">
         <div class="print-header">
-            Retr-O-Mat <span class="finding_marbles">(plans-for-retrospectives.com) <?php echo($_lang['PRINT_HEADER']); ?></span>
+            Retromat <span class="finding_marbles">(plans-for-retrospectives.com) <?php echo($_lang['PRINT_HEADER']); ?></span>
         </div>
         <div class="plan-header__wrapper">
             <div class="ids-display">
@@ -768,9 +805,11 @@ function switchLanguage(new_lang) {
             </div><!-- END js_item -->
             <div class="js_photo_link photo_link">
                 <span class="js_fill_photo-link"></span>
+				<!-- PAUSED Until I've got more time
                 <a href="mailto:corinna@finding-marbles.com?subject=<?php echo($_lang['ACTIVITY_PHOTO_MAIL_SUBJECT']) ?>&body=<?php echo($_lang['ACTIVITY_PHOTO_MAIL_BODY']) ?>" class="less_pronounced">
                     <?php echo($_lang['ACTIVITY_PHOTO_ADD']) ?>
                 </a>
+                -->
             </div><!-- END .js_photo_link -->
         </div><!-- END .activity-content -->
         <a href="JavaScript:Next" class="js_phase-stepper phase-stepper js_next_button display_table-cell" title="<?php echo($_lang['ACTIVITY_NEXT']) ?>">&#9658;</a>
@@ -780,7 +819,9 @@ function switchLanguage(new_lang) {
 <div class="about">
     <div class="content">
         <?php echo($_lang['INDEX_ABOUT']); ?>
+<!-- PAUSED Until I've got more time
         <a href="https://docs.google.com/a/finding-marbles.com/spreadsheet/viewform?formkey=dEZZV1hPYWVZUDc2MFNsUEVRdXpMNWc6MQ"><?php echo($_lang['INDEX_ABOUT_SUGGEST']); ?></a>!
+-->
     </div>
 </div>
 
@@ -811,13 +852,15 @@ function switchLanguage(new_lang) {
 
        <div>
            <h2><?php echo($_lang['INDEX_TEAM_CORINNA_TITLE']); ?>
-               <a href="http://finding-marbles.com/">
-                   Corinna Baldauf
-               </a>
            </h2>
            <a href="http://finding-marbles.com/">
                <img src="static/images/team/corinna_baldauf.jpg" width="70" height="93" title="Corinna Baldauf" class="team-photo">
            </a>
+           <h3 style="margin-bottom: 10px">
+               <a href="http://finding-marbles.com/">
+                   Corinna Baldauf
+               </a>
+           </h3>
            <div class="team-text" style="margin-right:0">
                <?php echo($_lang['INDEX_TEAM_CORINNA_TEXT']); ?>
            </div>
