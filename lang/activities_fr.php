@@ -712,7 +712,7 @@ name:      "Vider la boîte aux lettres",
 summary:   "Jetons un coup d'œil aux notes collectées pendant le sprint",
 desc:      "Mettez en place une 'boîte à lettres de rétrospective' au début de l'itération. Lorsque quelque-chose \
 d'important se produit ou que quelqu'un a une idée d'amélioration, il l'écrit. \
-et le 'poste'. (La 'boîte aux lettres' peut être également un endroit visible. Celà peut initier \
+et le 'poste'. (La 'boîte aux lettres' peut être également un endroit visible. Cela peut initier \
 une discussion pendant l'itération.) <br>\
 Parcourez toutes les notes et discutez-en.<br>\
 Une boîte aux lettres est bien pour les longues itérations et les équipes distraites.",
@@ -722,15 +722,43 @@ duration:  "15",
 suitable: "release, project"
 };
 all_activities[47] = {
-	phase:     3,
-	name:      "Prise de position - Danse en ligne",
-	summary:   "Recueillir le sentiment de chacun et parvenir à un consensus",
-	desc:      "Quand l'équipe n'arrive à pas choisir entre deux options, créez une grande échelle (par exemple une longue ligne) \
-	au sol avec de l'adhésif. Marquez une extrémité comme l' option A) et l'autre comme option B). \
-	Les membres de l'équipe se positionnenent sur l'échelle en fonction de leur préférence pour chacune des options. \
-	Maintenant modifiez les options jusqu'à ce qu'une des deux emporte la majorité.",
-	source:    source_skycoach,
-	more:      "<a href='http://skycoach.be/2010/06/17/12-retrospective-exercises/'>Article original</a>",
-	duration:  "5-10 per decision",
-	suitable: "iteration, release, project"
+phase:     3,
+name:      "Prise de position - Line Dance",
+summary:   "Avoir un ressenti de la position de chacun et parvenir à un consensus",
+desc:      "Lorsque l'équipe n'arrive pas à choisir entre deux options, créez une grande échelle (par exemple une grande ligne) \
+sur le sol avec de l'adhésif. Marquez une extrémité comme l'option A) et l'autre comme l'option B). \
+Les membres de l'équipe se positionnent sur l'échelle en fonction de leur préférence pour chaque option. \
+Maintenant modifiez les options jusqu'à ce qu'une des deux ait une majorité nette.",
+source:    source_skycoach,
+more:      "<a href='http://skycoach.be/2010/06/17/12-retrospective-exercises/'>Article d'origine</a>",
+duration:  "5 à 10 min par décision",
+suitable: "iteration, release, project"
+};
+all_activities[48] = {
+phase:     3,
+name:      "Vote par point - Étoile de mer",
+summary:   "Sachez quoi commencer, arrêter, continuer, faire plus et faire moins",
+desc:      "Tracez 5 rayons au tableau, pour obtenir 5 zones. \
+Nommez les 'Démarrer', 'Arrêter', 'Continuer', 'Faire plus' and 'Faire moins'. \
+Les participants notent alors leurs propositions sur des notes adhésives et les placent \
+dans la zone appropriée. Après avoir rassemblé les notes similaires \
+,votez en attributant des points aux suggestions que vous souhaitez essayer.",
+source:    "<a href='http://www.thekua.com/rant/2006/03/the-retrospective-starfish/'>Voir l'article de Pat Kua</a>",
+duration:  "15 min",
+suitable:  "iteration, release, project"
+};
+all_activities[49] = {
+phase:     2,
+name:      "Vœeu accordé",
+summary:   "Une fée vous accorde un vœu - comment savez-vous s'il a été exaucé ?",
+desc:      "Give participants 2 minutes to silently ponder the following question: \
+'A fairy grants you a wish that will fix your biggest problem \
+at work overnight. What do you wish for?' Follow up with: 'You come to work the next \
+morning. You can tell, that the fairy has granted your wish. How do you know? \
+What is different now?' If trust within the group is high, let everyone describe \
+their 'Wish granted'-workplace. If not, just tell the participants to keep their \
+scenario in mind during the next phase and suggest actions that work towards making it real.",
+source:    "Lydia Grawunder &amp; Sebastian Nachtigall",
+duration:  "15 min",
+suitable:  "iteration"
 };
